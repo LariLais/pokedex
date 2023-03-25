@@ -1,0 +1,145 @@
+body {
+  background-color: var(--fundo);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--fonte-principal);
+}
+
+.botoes {
+  display: flex;
+  margin-top: 5px;
+}
+
+.info {
+  display: flex;
+  gap: 5px;
+}
+
+.btn {
+  color: black;
+  font-size: larger;
+  width: 80px;
+  height: 40px;
+  margin: 0 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid white;
+  box-shadow: 2px 1px 3px 2px black;
+}
+
+.btn:disabled {
+  cursor: auto;
+  background-color: rgb(155, 155, 155);
+}
+
+.btn:disabled:hover {
+  cursor: auto;
+  background-color: rgb(155, 155, 155);
+}
+
+.btn:hover {
+  background-color: rgb(255, 125, 85);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#card-pokemon:hover {
+  background-color: #d4d4d6;
+}
+
+#card-pokemon {
+  display: block;
+  background-color: rgb(245, 247, 225);
+  margin: 10px;
+  width: 220px;
+  height: 220px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 15px 15px 15px 15px ;
+  font-family: var(--fonte-principal);
+  font-weight: 600;
+  border: 1px solid whitesmoke;
+  box-shadow: 2px 3px 4px 2px black;
+  flex-wrap: wrap;
+}
+
+.inicio {
+  display: flex;
+  background-color: rgb(255, 60, 0);
+  border-radius: 15px 15px 0 0;
+  align-items: center;
+  justify-content: space-around;
+  height: 30px;
+}
+
+.bloco {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#imagem {
+  width: 130px;
+  height: 130px;
+}
+
+#nome {
+  text-transform: uppercase;
+  font-family: var(--fonte-krona);
+}
+
+
+@media only screen and (max-width: 1440px) {
+
+  header{
+  width: 100%;
+
+    .navbar {
+      background-color: rgb(255, 60, 0);
+      height: 17vh;
+      border-bottom: 2px dotted rgb(236, 236, 76);
+      display: flex;
+      justify-content: center;
+
+      .nav {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        align-items: center;
+
+    }
+
+
+  }
+
+}
+}
+
+

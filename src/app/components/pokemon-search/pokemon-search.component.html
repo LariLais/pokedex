@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <app-header></app-header>
+    <main>
+      <section>
+        <h1 class="titulo">Busque o pokemon por Id ou nome</h1>
+
+        <div class="bloco-pesquisa">
+          <form (ngSubmit)="buscar()" autocomplete="off">
+            <input
+              [(ngModel)]="pokemonProcurado"
+              placeholder="Busque pokemon..."
+              autocomplete="off"
+              type="text"
+              class="pesquisa"
+              name="pokemonProcurado"
+            />
+            <input value="Buscar" type="submit" class="botao" />
+          </form>
+          <button
+            (click)="randomPokemon()"
+            class="botao-surpresa"
+          >
+            Surpreenda-me
+          </button>
+          <button (click)="mostrarHistorico()" class="botao-historico">
+            {{ funcao }}
+          </button>
+        </div>
+
+        <div class="mensagem">{{ mensagem }}</div>
+
+        <div id="bloco-resultado" style="height: 0; border: 0px; box-shadow: none;">
+          <a id="link" [routerLink]="['/detail', pokemonEncontrado.id]">
+            <div id="imagens" style="display: none">
+              <div>
+                <img [src]="imagem" alt="Default image" />
+              </div>
+            </div>
+
+            <div class="nome">
+              <h1>{{ pokemonEncontrado.nome }}</h1>
+            </div>
+          </a>
+        </div>
+
+        <div id="historico" style="display: none">
+          <h1 id="titulo-historico">Histórico de pesquisa</h1>
+          <div>
+            <div>
+              <table id="tabela">
+                <tr id="itens-tabela">
+                  <th>ID</th>
+                  <th>Nome</th>
+                </tr>
+                <tr id="result-historico">
+                  <td>
+                    <div id="item" *ngFor="let id of historicoId">
+                      <a [routerLink]="['/detail', id]">{{ id }}</a>
+                    </div>
+                  </td>
+                  <td>
+                    <div id="item" *ngFor="let nome of historicoNome">
+                      <a [routerLink]="['/detail', nome]">{{ nome }}</a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <app-footer></app-footer>
+  </body>
+</html>

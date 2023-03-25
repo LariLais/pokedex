@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista</title>
+  </head>
+  <body>
+    <app-header [titulo]="titulo"></app-header>
+    <main>
+      <div class="content">
+        <div id="card-pokemon" *ngFor="let lista of paginaAtual; let i = index">
+          <a id="link" [routerLink]="['/detail', paginaAtual[i].id]">
+            <div class="bloco">
+              <img
+                id="imagem"
+                [src]="paginaAtual[i].imageDefault"
+                alt="pokemon photo"
+              />
+              <div class="info">
+                <p>{{ paginaAtual[i].id }}</p>
+                <h2 id="nome">{{ paginaAtual[i].name }}</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="botoes">
+        <button
+          title="Primeira página"
+          class="btn"
+          (click)="primeiraPagina()"
+          [disabled]="habilitaPrimeiraPagina()"
+        >
+          &#171;
+        </button>
+        <button
+          title="Página anterior"
+          class="btn"
+          (click)="anteriorPagina()"
+          [disabled]="habilitaRetrocesso()"
+        >
+          &lt;
+        </button>
+        <button
+          title="Próxima página"
+          class="btn"
+          (click)="proximaPagina()"
+          [disabled]="habilitaAvanco()"
+        >
+          &gt;
+        </button>
+        <button
+          title="Última página"
+          class="btn"
+          (click)="ultimaPagina()"
+          [disabled]="habilitaUltimaPagina()"
+        >
+          &#187;
+        </button>
+      </div>
+    </main>
+    <app-footer></app-footer>
+  </body>
+</html>

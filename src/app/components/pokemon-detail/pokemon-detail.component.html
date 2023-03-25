@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+  </head>
+  <body id="corpo">
+    <app-header-detail [id]="pokemonEncontrado.id"></app-header-detail>
+    <main>
+      <section>
+        <div id="fundo-imagem">
+          <img
+            (mouseover)="trocarImagem()"
+            [title]="title"
+            class="padrao"
+            [src]="pokemonEncontrado.imagemTroca"
+            alt="Default Image"
+          />
+        </div>
+        <div class="infos">
+          <div class="titulo">
+            <h2 title="Name" class="nome-pokemon">
+              {{ pokemonEncontrado.nome }}
+            </h2>
+          </div>
+          <div class="tipos-pokemon">
+            <p title="Type 1" id="tipo1">
+              <img id="icon" src="{{ pokemonEncontrado.icon1 }}" alt="#" />{{
+                pokemonEncontrado.tipo1
+              }}
+            </p>
+            <p title="Type 2" id="tipo2">
+              <img id="icon" [src]="pokemonEncontrado.icon2" alt="#" />{{
+                pokemonEncontrado.tipo2
+              }}
+            </p>
+          </div>
+          <div class="info">
+            <div class="info-bloco">
+              <p title="Weight" class="peso">
+                {{ pokemonEncontrado.peso / 10 }}kg
+              </p>
+              <p class="info__titulo">Peso</p>
+            </div>
+            <div class="info-bloco">
+              <p title="Height" class="altura">
+                {{ pokemonEncontrado.altura / 10 }}cm
+              </p>
+              <p class="info__titulo">Altura</p>
+            </div>
+          </div>
+
+          <div class="base-stats">
+            <h3 class="base-stats__titulo">Base Stats</h3>
+            <div class="bloco">
+              <div class="barra">
+                <p>HP</p>
+                <div class="d-flex flex-column margin-bottom-1">
+                  <div class="barra-background"></div>
+                  <div
+                    class="barra-progresso vida"
+                    [style.width.px]="pokemonEncontrado.hp"
+                  >
+                    <p title="Hp value" class="hp">
+                      {{ pokemonEncontrado.hp }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="barra">
+                <p>ATQ</p>
+                <div class="d-flex flex-column margin-bottom-1">
+                  <div class="barra-background"></div>
+                  <div
+                    class="barra-progresso ataque"
+                    [style.width.px]="pokemonEncontrado.ataque"
+                  >
+                    <p title="Attack value" class="atq">
+                      {{ pokemonEncontrado.ataque }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="barra">
+                <p>DEF</p>
+                <div class="d-flex flex-column margin-bottom-1">
+                  <div class="barra-background"></div>
+                  <div
+                    class="barra-progresso defesa"
+                    [style.width.px]="pokemonEncontrado.defesa"
+                  >
+                    <p title="Defense value" class="def">
+                      {{ pokemonEncontrado.defesa }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="barra">
+                <p>SATQ</p>
+                <div class="d-flex flex-column margin-bottom-1">
+                  <div class="barra-background"></div>
+                  <div
+                    class="barra-progresso spa"
+                    [style.width.px]="pokemonEncontrado.specialAttack"
+                  >
+                    <p title="Special attack value" class="sa">
+                      {{ pokemonEncontrado.specialAttack }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="barra">
+                <p>SDEF</p>
+                <div class="d-flex flex-column margin-bottom-1">
+                  <div class="barra-background"></div>
+                  <div
+                    class="barra-progresso sd"
+                    [style.width.px]="pokemonEncontrado.specialDefense"
+                  >
+                    <p title="Special defense value" class="sd">
+                      {{ pokemonEncontrado.specialDefense }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="barra">
+                <p>VEL</p>
+                <div class="d-flex flex-column margin-bottom-1">
+                  <div class="barra-background"></div>
+                  <div
+                    class="barra-progresso speed"
+                    [style.width.px]="pokemonEncontrado.velocidade"
+                  >
+                    <p title="Speed value" class="speed">
+                      {{ pokemonEncontrado.velocidade }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="habilidades">
+              <p class="habilidades__titulo">Habilidades</p>
+              <div class="habilidades__info">
+                <p title="Ability 1">{{ pokemonEncontrado.habilidade1 }}</p>
+                <p title="Ability 2">{{ pokemonEncontrado.habilidade2 }}</p>
+                <p title="Ability 3">{{ pokemonEncontrado.habilidade3 }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Busca por tipo</title>
+  </head>
+  <body>
+    <app-header [titulo]="titulo"></app-header>
+    <main>
+      <div>
+        <ul class="simbols-list">
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(1)">
+            <img
+              title="normal"
+              src="https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416764_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(2)">
+            <img
+              title="fighting"
+              src="https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414806_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(3)">
+            <img
+              title="flying"
+              src="https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414808_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(4)">
+            <img
+              title="poison"
+              src="https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416765_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(5)">
+            <img
+              title="ground"
+              src="https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416762_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(6)">
+            <img
+              title="rock"
+              src="https://cdn.pixabay.com/photo/2018/05/21/13/06/pokemon-3418255_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(7)">
+            <img
+              title="bug"
+              src="https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411386_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(8)">
+            <img
+              title="ghost"
+              src="https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414809_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(9)">
+            <img
+              title="steel"
+              src="https://cdn.pixabay.com/photo/2018/05/21/13/06/pokemon-3418256_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(10)">
+            <img
+              title="fire"
+              src="https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414807_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(11)">
+            <img
+              title="water"
+              src="https://cdn.pixabay.com/photo/2018/05/21/13/06/pokemon-3418257_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(12)">
+            <img
+              title="grass"
+              src="https://cdn.pixabay.com/photo/2018/05/20/01/41/pokemon-3414810_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(13)">
+            <img
+              title="eletric"
+              src="https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411389_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(14)">
+            <img
+              title="psychic"
+              src="https://cdn.pixabay.com/photo/2018/05/20/21/01/pokemon-3416767_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(15)">
+            <img
+              title="ice"
+              src="https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416763_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(16)">
+            <img
+              title="dragon"
+              src="https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411388_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(17)">
+            <img
+              title="dark"
+              src="https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411387_960_720.png"
+              alt=""
+            />
+          </li>
+          <li class="poke-simbol" (click)="buscarPokemonDoTipo(18)">
+            <img
+              title="fairy"
+              src="https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411390_960_720.png"
+              alt=""
+            />
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div
+          id="card-pokemon"
+          *ngFor="let lista of paginaAtual; let i = index"
+        >
+          <a id="link" [routerLink]="['/detail', paginaAtual[i].id]">
+            <div class="bloco">
+              <img
+                id="imagem"
+                [src]="paginaAtual[i].imageDefault"
+                alt="pokemon photo"
+              />
+              <h2 id="nome">{{ paginaAtual[i].name }}</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="botoes">
+        <button
+          title="Primeira página"
+          class="btn"
+          (click)="primeiraPagina()"
+          [disabled]="habilitaPrimeiraPagina()"
+        >
+          &#171;
+        </button>
+        <button
+          title="Página anterior"
+          class="btn"
+          (click)="anteriorPagina()"
+          [disabled]="habilitaRetrocesso()"
+        >
+          &lt;
+        </button>
+        <button
+          title="Próxima página"
+          class="btn"
+          (click)="proximaPagina()"
+          [disabled]="habilitaAvanco()"
+        >
+          &gt;
+        </button>
+        <button
+          title="Última página"
+          class="btn"
+          (click)="ultimaPagina()"
+          [disabled]="habilitaUltimaPagina()"
+        >
+          &#187;
+        </button>
+      </div>
+    </main>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </body>
+</html>

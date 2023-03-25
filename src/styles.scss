@@ -1,1 +1,186 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --fonte-principal: "Montserrat", sans-serif;
+  --cor-preta-cinza: rgb(29, 28, 28);
+  --fundo-amarelo: #ffc312;
+  --fonte-krona: "Krona One", sans-serif;
+  --fundo: #1f2124;
+  --fire: #ff6961;
+  --water: #6a9eda;
+  --grass: #5dc460;
+  --electric: #ffff7d;
+  --fighting: #e2e37e;
+  --ice: #e4fbfb;
+  --psychic: #42ab49;
+  --poison: #b186f1;
+  --normal: #d8af97;
+  --dark: #888a8a;
+  --ground: #ffe180;
+  --steel: #bdbfbf;
+  --rock: #9b9b9b;
+  --bug: #ff9688;
+  --flying: #96c4c4;
+  --ghost: #515151;
+  --dragon: #ff9800;
+  --fairy: #fdcae1;
+  --fireW: url("https://images.unsplash.com/photo-1542401886-65d6c61db217?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  --waterW: url("https://images.unsplash.com/photo-1468581264429-2548ef9eb732?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  --grassW: url("https://wallpaperaccess.com/full/6264388.jpg");
+  --electricW: url("https://3.bp.blogspot.com/-ZAK_KSrIhCw/WnNGMf30aiI/AAAAAAAAIK4/5_pcwJmBEm4eHzJ5jqZRj3el0GVTuAFiwCLcBGAs/s1600/lightning_nature_storm-71734.jpgs");
+  --fightingW: url("https://static.vecteezy.com/ti/vetor-gratis/p3/7243548-conceito-de-fundo-de-ringue-de-boxe-gratis-vetor.jpg");
+  --iceW: url("https://wallpaperaccess.com/full/1253837.jpg");
+  --psychicW: url("https://wallpaper4k.com.br/wp-content/uploads/2022/10/wallpapers-roxo-em-4k-13.png");
+  --poisonW: url("https://static.vecteezy.com/system/resources/thumbnails/012/963/495/original/green-smoke-effect-animation-on-black-background-toxic-smoke-effect-free-video.jpg");
+  --normalW: url("https://i.pinimg.com/originals/ca/72/9d/ca729d33c150594423fefb1a42dfd886.png");
+  --darkW: url("https://free4kwallpapers.com/uploads/originals/2018/08/24/dark-forest.-wallpaper_.jpg");
+  --groundW: url("https://images.unsplash.com/photo-1547235001-d703406d3f17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+  --steelW: url("https://wallpaper.dog/large/20442054.jpg");
+  --rockW: url("https://img.freepik.com/fotos-gratis/textura-da-parede-do-grunge_1194-6108.jpg?w=2000");
+  --bugW: url("https://upload.wikimedia.org/wikipedia/commons/6/68/Grass_dsc08672-nevit.jpg");
+  --flyingW: url("https://img.freepik.com/vetores-gratis/fundo-do-ceu-em-aquarela-pintada-a-mao_52683-59883.jpg?w=2000");
+  --ghostW: url("https://images.unsplash.com/photo-1595319260223-c068746347cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bmlnaHQlMjBmb3Jlc3R8ZW58MHx8MHx8&w=1000&q=80");
+  --dragonW: url("https://images.unsplash.com/photo-1504253163759-c23fccaebb55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  --fairyW: url("https://wallpapers.com/images/hd/magic-book-in-enchanted-forest-a3sbgghsb4b0t0as.jpg");
+  --normalI: url("https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416764_960_720.png");
+  --fightingI: url("https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414806_960_720.png");
+  --flyingI: url("https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414808_960_720.png");
+  --poisonI: url("https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416765_960_720.png");
+  --groundI: url("https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416762_960_720.png");
+  --rockI: url("https://cdn.pixabay.com/photo/2018/05/21/13/06/pokemon-3418255_960_720.png");
+  --bugI: url("https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411386_960_720.png");
+  --ghostI: url("https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414809_960_720.png");
+  --steelI: url("https://cdn.pixabay.com/photo/2018/05/21/13/06/pokemon-3418256_960_720.png");
+  --fireI: url("https://cdn.pixabay.com/photo/2018/05/20/01/40/pokemon-3414807_960_720.png");
+  --waterI: url("https://cdn.pixabay.com/photo/2018/05/21/13/06/pokemon-3418257_960_720.png");
+  --grassI: url("https://cdn.pixabay.com/photo/2018/05/20/01/41/pokemon-3414810_960_720.png");
+  --eletricI: url("https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411389_960_720.png");
+  --psychicI: url("https://cdn.pixabay.com/photo/2018/05/20/21/01/pokemon-3416767_960_720.png");
+  --iceI: url("https://cdn.pixabay.com/photo/2018/05/20/21/00/pokemon-3416763_960_720.png");
+  --dragonI: url("https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411388_960_720.png");
+  --darkI: url("https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411387_960_720.png");
+  --fairyI: url("https://cdn.pixabay.com/photo/2018/05/18/15/43/pokemon-3411390_960_720.png");
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

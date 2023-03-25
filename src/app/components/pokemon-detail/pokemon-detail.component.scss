@@ -1,0 +1,255 @@
+#corpo {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  font-family: var(--fonte-krona);
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  color: white;
+}
+
+main {
+  box-sizing: border-box;
+  width: 800px;
+  background-color: var(--fundo);
+  height: 900px;
+  display: flex;
+  justify-content: center;
+}
+
+#fundo-imagem {
+  height: 300px;
+  width: 800px;
+  border-radius: 0 0 35px 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.padrao {
+  width: 250px;
+  height: 250px;
+}
+
+.padrao:hover {
+  cursor: pointer;
+}
+
+.shiny {
+  width: 250px;
+  height: 250px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 305px;
+}
+
+.titulo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0 10px 0;
+  font-size: 24px;
+  margin-top: 250px;
+}
+
+.tipos-pokemon {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+#tipo1 {
+  padding: 20px 70px;
+  border-radius: 20px;
+  font-size: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#tipo2 {
+  padding: 20px 70px;
+  border-radius: 20px;
+  font-size: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  width: 70%;
+  font-size: 20px;
+  justify-content: space-around;
+}
+
+.info__titulo {
+  font-size: 15px;
+  color: grey;
+}
+
+.info-bloco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+}
+
+#icon {
+  width: 30px;
+  height: 30px;
+}
+
+.d-flex {
+  display: flex;
+  width: 400px;
+  justify-content: flex-start;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.barra-background, .barra-progresso {
+  border-radius: 8px;
+}
+
+.barra-background {
+  background: #ccc;
+  height: 25px;
+  width: 200px;
+}
+
+.barra-progresso {
+  height: 25px;
+  margin-top: -25px;
+  transition: all .5s;
+}
+
+.vida {
+  background-color: #B67162;
+}
+
+.ataque {
+  background-color: #E08F62;
+}
+
+.defesa {
+  background-color: #86ABA1;
+}
+
+.spa {
+  background-color: #D35D6E;
+}
+
+.sd {
+  background-color: #5AA469;
+}
+
+.speed {
+  background-color: #7DB9B6;
+}
+.font-regular {
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
+.font-bold {
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+
+.margin-bottom-1 {
+  margin-bottom: 8px;
+}
+
+.barra-progresso {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.barra-progresso p {
+  margin-right: 5px;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  width: 500px;
+}
+.base-stats__titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+
+.base-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloco {
+  width: 300px;
+}
+
+.barra-progresso p {
+  font-size: 14px;
+}
+
+.habilidades {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 500px;
+}
+
+.habilidades__info {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  gap: 30px;
+
+}
+
+.habilidades__titulo {
+  font-size: 1.2rem;
+}
+
+.habilidades__info p {
+  display: flex;
+  width: 150px;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
