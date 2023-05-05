@@ -135,11 +135,19 @@ export class PokemonDetailComponent implements OnInit {
   }
 
   definirIcons() {
+    // Icons
+    let icon1 = document.getElementById('icon1');
+    let icon2 = document.getElementById('icon2');
+
     // Icon 1
-    this.pokemonEncontrado.icon1 = `var(--${this.pokemonEncontrado.tipo1}I)`;
+    icon1.style.backgroundImage = `var(--${this.pokemonEncontrado.tipo1}I)`;
+    icon1.style.width = '50px';
+    icon1.style.height = '50px';
 
     // Icon 2
-    this.pokemonEncontrado.icon2 = `var(--${this.pokemonEncontrado.tipo2}I)`;
+    icon2.style.backgroundImage = `var(--${this.pokemonEncontrado.tipo2}I)`;
+    icon2.style.width = '50px';
+    icon2.style.height = '50px';
   }
 
   trocarImagem() {

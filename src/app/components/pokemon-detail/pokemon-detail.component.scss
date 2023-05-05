@@ -13,7 +13,7 @@ main {
   box-sizing: border-box;
   width: 800px;
   background-color: var(--fundo);
-  height: 900px;
+  height: 100vh;
   display: flex;
   justify-content: center;
 }
@@ -103,7 +103,6 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-
 }
 
 #icon {
@@ -125,7 +124,8 @@ main {
   flex-direction: column;
 }
 
-.barra-background, .barra-progresso {
+.barra-background,
+.barra-progresso {
   border-radius: 8px;
 }
 
@@ -138,46 +138,45 @@ main {
 .barra-progresso {
   height: 25px;
   margin-top: -25px;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .vida {
-  background-color: #B67162;
+  background-color: #b67162;
 }
 
 .ataque {
-  background-color: #E08F62;
+  background-color: #e08f62;
 }
 
 .defesa {
-  background-color: #86ABA1;
+  background-color: #86aba1;
 }
 
 .spa {
-  background-color: #D35D6E;
+  background-color: #d35d6e;
 }
 
 .sd {
-  background-color: #5AA469;
+  background-color: #5aa469;
 }
 
 .speed {
-  background-color: #7DB9B6;
+  background-color: #7db9b6;
 }
 .font-regular {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 300;
 }
 
 .font-bold {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
 }
 
 .align-items-center {
   align-items: center;
 }
-
 
 .margin-bottom-1 {
   margin-bottom: 8px;
@@ -239,7 +238,6 @@ main {
   width: 100%;
   margin-top: 30px;
   gap: 30px;
-
 }
 
 .habilidades__titulo {
@@ -252,4 +250,14 @@ main {
   justify-content: space-around;
   text-align: center;
   align-items: center;
+}
+
+#icon1 {
+  width: 20px;
+  height: 20px;
+}
+
+#icon2 {
+  width: 20px;
+  height: 20px;
 }

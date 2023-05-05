@@ -26,15 +26,13 @@
             </h2>
           </div>
           <div class="tipos-pokemon">
+            <p id="icon1">{{ pokemonEncontrado.icon1 }}</p>
             <p title="Type 1" id="tipo1">
-              <img id="icon" src="{{ pokemonEncontrado.icon1 }}" alt="#" />{{
-                pokemonEncontrado.tipo1
-              }}
+              {{ pokemonEncontrado.tipo1 }}
             </p>
+            <p id="icon2">{{ pokemonEncontrado.icon2 }}</p>
             <p title="Type 2" id="tipo2">
-              <img id="icon" [src]="pokemonEncontrado.icon2" alt="#" />{{
-                pokemonEncontrado.tipo2
-              }}
+              {{ pokemonEncontrado.tipo2 }}
             </p>
           </div>
           <div class="info">
