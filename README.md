@@ -1,6 +1,18 @@
 # Pokedex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+## Introdução
+
+Olá! Esse projeto foi feito por mim para praticar Angular, sendo também meu primeiro projetinho angular. Você pode buscar por algum pokemon desejado ou até mesmo sortear um para ver sobre. Terá também uma listagem de todos os pokemons e também uma busca por tipo de pokemon!
+
+Divirta-se.
+
+## English intro
+
+Hello! This project was made by me to practice Angular, also being my first angular project. You can search for any pokemon you want or even draw one to see about. It will also have a list of all pokemons and also a search by type of pokemon!
+
+Have a good time.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
 ## Development server
 
