@@ -110,7 +110,6 @@ export class PokemonDetailComponent implements OnInit {
         resultado.sprites.other['official-artwork'].front_shiny;
 
       this.definirBackground();
-      this.definirIcons();
       this.aoBuscar.emit(this.pokemonEncontrado);
     });
   }
@@ -127,27 +126,11 @@ export class PokemonDetailComponent implements OnInit {
 
     // TIPO 1
     tipo1.style.backgroundColor = `var(--${this.pokemonEncontrado.tipo1})`;
-    corpo.style.backgroundImage = `var(--${this.pokemonEncontrado.tipo1}W)`;
+    corpo.style.backgroundColor = `var(--${this.pokemonEncontrado.tipo1}W)`;
     fundo.style.backgroundColor = `var(--${this.pokemonEncontrado.tipo1})`;
 
     // TIPO 2
     tipo2.style.backgroundColor = `var(--${this.pokemonEncontrado.tipo2})`;
-  }
-
-  definirIcons() {
-    // Icons
-    let icon1 = document.getElementById('icon1');
-    let icon2 = document.getElementById('icon2');
-
-    // Icon 1
-    icon1.style.backgroundImage = `var(--${this.pokemonEncontrado.tipo1}I)`;
-    icon1.style.width = '50px';
-    icon1.style.height = '50px';
-
-    // Icon 2
-    icon2.style.backgroundImage = `var(--${this.pokemonEncontrado.tipo2}I)`;
-    icon2.style.width = '50px';
-    icon2.style.height = '50px';
   }
 
   trocarImagem() {

@@ -22,24 +22,24 @@
   --ghost: #515151;
   --dragon: #ff9800;
   --fairy: #fdcae1;
-  --fireW: url("https://images.unsplash.com/photo-1542401886-65d6c61db217?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-  --waterW: url("https://images.unsplash.com/photo-1468581264429-2548ef9eb732?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-  --grassW: url("https://wallpaperaccess.com/full/6264388.jpg");
-  --electricW: url("https://3.bp.blogspot.com/-ZAK_KSrIhCw/WnNGMf30aiI/AAAAAAAAIK4/5_pcwJmBEm4eHzJ5jqZRj3el0GVTuAFiwCLcBGAs/s1600/lightning_nature_storm-71734.jpgs");
-  --fightingW: url("https://static.vecteezy.com/ti/vetor-gratis/p3/7243548-conceito-de-fundo-de-ringue-de-boxe-gratis-vetor.jpg");
-  --iceW: url("https://wallpaperaccess.com/full/1253837.jpg");
-  --psychicW: url("https://wallpaper4k.com.br/wp-content/uploads/2022/10/wallpapers-roxo-em-4k-13.png");
-  --poisonW: url("https://static.vecteezy.com/system/resources/thumbnails/012/963/495/original/green-smoke-effect-animation-on-black-background-toxic-smoke-effect-free-video.jpg");
-  --normalW: url("https://i.pinimg.com/originals/ca/72/9d/ca729d33c150594423fefb1a42dfd886.png");
-  --darkW: url("https://free4kwallpapers.com/uploads/originals/2018/08/24/dark-forest.-wallpaper_.jpg");
-  --groundW: url("https://images.unsplash.com/photo-1547235001-d703406d3f17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
-  --steelW: url("https://wallpaper.dog/large/20442054.jpg");
-  --rockW: url("https://img.freepik.com/fotos-gratis/textura-da-parede-do-grunge_1194-6108.jpg?w=2000");
-  --bugW: url("https://upload.wikimedia.org/wikipedia/commons/6/68/Grass_dsc08672-nevit.jpg");
-  --flyingW: url("https://img.freepik.com/vetores-gratis/fundo-do-ceu-em-aquarela-pintada-a-mao_52683-59883.jpg?w=2000");
-  --ghostW: url("https://images.unsplash.com/photo-1595319260223-c068746347cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bmlnaHQlMjBmb3Jlc3R8ZW58MHx8MHx8&w=1000&q=80");
-  --dragonW: url("https://images.unsplash.com/photo-1504253163759-c23fccaebb55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-  --fairyW: url("https://wallpapers.com/images/hd/magic-book-in-enchanted-forest-a3sbgghsb4b0t0as.jpg");
+  --fireW: var(--normal);
+  --waterW: var(--steel);
+  --grassW: var(--psychic);
+  --electricW: var(--dragon);
+  --fightingW: var(--rock);
+  --iceW: var(--water);
+  --psychicW: var(--poison);
+  --poisonW: var(--grass);
+  --normalW: var(--ground);
+  --darkW: var(--ghost);
+  --groundW: var(--normal);
+  --steelW: var(--dark);
+  --rockW: var(--bug);
+  --bugW: var(--eletric);
+  --flyingW: var(--ice);
+  --ghostW: var(--fighting);
+  --dragonW: var(--fairy);
+  --fairyW: var(--fire);
 }
 
 * {

@@ -46,6 +46,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
   height: 305px;
 }
 
@@ -204,7 +205,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 30px;
   font-size: 1.2rem;
 }
@@ -260,4 +261,9 @@ main {
 #icon2 {
   width: 20px;
   height: 20px;
+}
+
+.nome-pokemon {
+  margin-top: 15px;
+  text-transform: uppercase;
 }
