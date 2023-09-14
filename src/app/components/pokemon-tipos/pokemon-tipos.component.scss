@@ -1,5 +1,5 @@
 body {
-  background-color: var(--fundo);
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -11,13 +11,14 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  background-color: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
   width: 100vw;
 }
 
 .content {
   margin-top: 2px;
   display: flex;
-  background-color: var(--fundo);
+  background-color: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
   flex-wrap: wrap;
 }
 
@@ -78,13 +79,14 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--fundo);
+  background-color: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
   margin-bottom: 10%;
 }
 
 .content {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
   align-items: center;
   justify-content: center;
 }
@@ -105,18 +107,19 @@ main {
 
 #card-pokemon {
   display: block;
-  background-color: rgb(245, 247, 225);
-  margin: 20px;
+  background-image: url("https://i.pinimg.com/originals/33/ac/6a/33ac6af8e90054568ab47ad0ef2d02a2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 10px;
   width: 220px;
   height: 220px;
   text-align: center;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  border-radius: 15px 15px 15px 15px;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--fonte-principal);
   font-weight: 600;
-  border: 1px solid whitesmoke;
-  box-shadow: 2px 3px 4px 2px black;
   flex-wrap: wrap;
 }
 

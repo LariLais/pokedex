@@ -29,21 +29,21 @@
               name="pokemonProcurado"
             />
             <input value="Buscar" type="submit" class="botao" />
+            <button (click)="randomPokemon()" class="botao-surpresa">
+              Surpreenda-me
+            </button>
+            <button (click)="mostrarHistorico()" class="botao-historico">
+              {{ funcao }}
+            </button>
           </form>
-          <button
-            (click)="randomPokemon()"
-            class="botao-surpresa"
-          >
-            Surpreenda-me
-          </button>
-          <button (click)="mostrarHistorico()" class="botao-historico">
-            {{ funcao }}
-          </button>
         </div>
 
         <div class="mensagem">{{ mensagem }}</div>
 
-        <div id="bloco-resultado" style="height: 0; border: 0px; box-shadow: none;">
+        <div
+          id="bloco-resultado"
+          style="height: 0; border: 0px; box-shadow: none"
+        >
           <a id="link" [routerLink]="['/detail', pokemonEncontrado.id]">
             <div id="imagens" style="display: none">
               <div>

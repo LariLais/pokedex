@@ -1,9 +1,11 @@
 header {
-  background-color: #ec2300;
+  background-color: rgb(255, 88, 38);
   display: flex;
   width: 100vw;
-  height: 50px;
+  height: 80px;
   font-family: var(--fonte-principal);
+  color: #000000;
+  font-size: large;
 }
 
 img {
@@ -13,16 +15,14 @@ img {
 ul {
   display: flex;
   width: 100vw;
-  height: 50px;
+  height: 80px;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid #CF0A0A;
-
 }
 li {
   margin: 0 10px 0 10px;
   font-weight: bolder;
-  height: 50px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@ li {
 }
 
 .link a {
-  color: white;
+  color: rgb(53, 53, 53);
   text-decoration: none;
 }
 

@@ -1,23 +1,23 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getPokemonData(nome: string) {
-    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${nome}`)
+    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon/${nome}`);
   }
 
   getPokemonLista() {
-    return this.http.get<any>(`https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`)
+    return this.http.get<any>(
+      `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
+    );
   }
 
-  getType(tipo: number | string){
-    return this.http.get<any>(`https://pokeapi.co/api/v2/type/${tipo}`)
+  getType(tipo: number | string) {
+    return this.http.get<any>(`https://pokeapi.co/api/v2/type/${tipo}`);
   }
 }
