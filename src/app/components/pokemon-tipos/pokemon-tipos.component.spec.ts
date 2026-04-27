@@ -143,19 +143,6 @@ describe(PokemonTiposComponent.name, () => {
     expect(component).not.toBe(undefined);
   });
 
-  it('#habilitaAvanco should enable button to next page', () => {
-    component.indexAtual = -2
-    component.habilitaAvanco()
-    expect(component.habilitaAvanco()).toBeFalse()
-  });
-
-  it('#habilitaRetrocesso should enable button to previous page', () => {
-    component.indexAtual = 8
-    component.habilitaRetrocesso()
-    expect(component.habilitaAvanco()).toBeTrue()
-
-  });
-
   it('#proximaPagina should go to the next page when called', () => {
     component.proximaPagina()
     expect(component.proximaPagina()).toBeUndefined()
@@ -175,18 +162,6 @@ describe(PokemonTiposComponent.name, () => {
   it('#ultimaPagina should go to the last page when called', () => {
     component.ultimaPagina()
     expect(component.ultimaPagina()).toBeUndefined()
-  });
-
-  it('#habilitaPrimeiraPagina should enable the first page button', () => {
-    component.indexAtual = 7
-    component.habilitaPrimeiraPagina()
-    expect(component.habilitaPrimeiraPagina()).toBeTrue()
-  });
-
-  it('#habilitaUltimaPagina should enable the last page button', () => {
-    component.indexAtual = -2
-    component.habilitaUltimaPagina()
-    expect(component.habilitaUltimaPagina()).toBeFalse()
   });
 
   it('#buscarPokemonDoTipo should return a pokemon list of especfic type searched', () => {

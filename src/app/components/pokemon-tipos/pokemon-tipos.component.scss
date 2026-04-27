@@ -1,150 +1,98 @@
-body {
-  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  font-family: var(--fonte-principal);
+.page {
+  padding: 30px 0 80px;
+}
+
+.types-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .simbols-list {
-  flex-wrap: wrap;
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   justify-content: center;
-  margin-top: 20px;
-  background-color: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
-  width: 100vw;
-}
-
-.content {
-  margin-top: 2px;
-  display: flex;
-  background-color: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
-  flex-wrap: wrap;
-}
-
-.poke-simbol {
-  margin-top: 50px;
-  margin: 0 5px 0 5px;
 }
 
 .poke-simbol img {
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  border: 1px solid black;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
 }
 
 .poke-simbol img:hover {
-  cursor: pointer;
-  border: 1px solid whitesmoke;
-  box-shadow: 2px 3px 5px 2px black;
-}
-
-.botoes {
-  display: flex;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  position: absolute;
-  bottom: 0;
-}
-
-.btn {
-  color: black;
-  font-size: larger;
-  width: 80px;
-  height: 40px;
-  margin: 0 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 1px solid white;
-  box-shadow: 2px 1px 3px 2px black;
-}
-
-.btn:disabled {
-  cursor: auto;
-  background-color: rgb(155, 155, 155);
-}
-
-.btn:disabled:hover {
-  cursor: auto;
-  background-color: rgb(155, 155, 155);
-}
-
-.btn:hover {
-  background-color: rgb(255, 125, 85);
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png");
-  margin-bottom: 10%;
+  transform: scale(1.1);
+  border-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .content {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  width: min(1000px, 90%);
+  margin: 0 auto;
 }
 
-#link {
-  text-decoration: none;
-  color: black;
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 12px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card-body {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-#card-pokemon:hover {
-  background-color: #d4d4d6;
-}
-
-#card-pokemon {
-  display: block;
-  background-image: url("https://i.pinimg.com/originals/33/ac/6a/33ac6af8e90054568ab47ad0ef2d02a2.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 10px;
-  width: 220px;
-  height: 220px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 10px;
-  font-family: var(--fonte-principal);
-  font-weight: 600;
-  flex-wrap: wrap;
-}
-
-.inicio {
-  display: flex;
-  background-color: rgb(255, 60, 0);
-  border-radius: 15px 15px 0 0;
-  align-items: center;
-  justify-content: space-around;
-  height: 30px;
-}
-
-.bloco {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
-#imagem {
-  width: 130px;
-  height: 130px;
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
 }
 
-#nome {
-  text-transform: uppercase;
-  font-family: var(--fonte-krona);
+.card h2 {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  text-transform: capitalize;
+}
+
+.card a {
+  text-decoration: none;
+  color: white;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.botoes button {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.botoes button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  margin: 20px;
 }
