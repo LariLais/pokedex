@@ -1,42 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=
-  , initial-scale=1.0"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="shortcut icon"
-      href="https://assets.pokemon.com/static2/_ui/img/favicon.ico"
-    />
+<app-header></app-header>
 
-    <title>Pokedex</title>
-  </head>
-  <body>
-    <header>
-      <app-header></app-header>
-    </header>
-    <main>
-      <section class="section-hero">
-        <div class="hero-inner container">
-          <div class="hero-content">
-            <h1 class="titulo">Busque por seu pokemon favorito!</h1>
-            <a class="cta" [routerLink]="link">Procurar pokemon</a>
-          </div>
+<main>
+  <section class="section-hero">
+    <div class="hero-inner container">
+      <div class="hero-content">
+        <h1 class="titulo">Busque seu Pokémon favorito</h1>
 
-          <div class="hero-illustration">
-            <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-PNG-Photo-Image.png" alt="Pikachu" />
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <app-footer></app-footer>
-    </footer>
-  </body>
-</html>
+        <p class="subtitulo">
+          Explore a Pokédex, descubra tipos e encontre qualquer Pokémon pelo
+          nome ou ID.
+        </p>
+
+        <a class="cta" [routerLink]="link"> Procurar Pokémon </a>
+      </div>
+
+      <div class="hero-illustration">
+        <img
+          src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-PNG-Photo-Image.png"
+          alt="Pikachu"
+        />
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

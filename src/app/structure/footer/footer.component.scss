@@ -1,19 +1,43 @@
 :host {
-  display:block;
-  position:fixed;
-  left:0; right:0; bottom:0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.12));
-  border-top: 1px solid rgba(255,255,255,0.04);
-  backdrop-filter: blur(6px);
+  display: block;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.15)
+  );
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
 }
 
 .footer-inner {
-  width: min(1200px, 94%);
+  width: min(1200px, 92%);
   margin: 0 auto;
-  height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color: #dcdcdc;
-  font-size: .9rem;
+
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-inner p {
+  margin: 0;
+  transition: 0.2s;
+}
+
+.footer-inner p:hover {
+  color: white;
 }
