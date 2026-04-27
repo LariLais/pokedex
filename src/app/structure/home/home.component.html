@@ -22,10 +22,16 @@
       <app-header></app-header>
     </header>
     <main>
-      <section>
-        <div class="container">
-          <h1 class="titulo">Busque por seu pokemon favorito!</h1>
-          <a class="link" [routerLink]="link"><p>Procurar pokemon</p></a>
+      <section class="section-hero">
+        <div class="hero-inner container">
+          <div class="hero-content">
+            <h1 class="titulo">Busque por seu pokemon favorito!</h1>
+            <a class="cta" [routerLink]="link">Procurar pokemon</a>
+          </div>
+
+          <div class="hero-illustration">
+            <img src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-PNG-Photo-Image.png" alt="Pikachu" />
+          </div>
         </div>
       </section>
     </main>

@@ -8,152 +8,53 @@
   </head>
   <body id="corpo">
     <app-header-detail [id]="pokemonEncontrado.id"></app-header-detail>
-    <main>
-      <section>
-        <div id="fundo-imagem">
-          <img
-            (mouseover)="trocarImagem()"
-            [title]="title"
-            class="padrao"
-            [src]="pokemonEncontrado.imagemTroca"
-            alt="Default Image"
-          />
+    <main class="detail-root">
+      <div class="detail-container">
+        <div class="detail-image">
+          <img (mouseover)="trocarImagem()" [title]="title" [src]="pokemonEncontrado.imagemTroca" alt="Pokemon image" />
         </div>
-        <div class="infos">
-          <div class="titulo">
-            <h2 title="Name" class="nome-pokemon">
-              {{ pokemonEncontrado.nome }}
-            </h2>
+
+        <div class="detail-info">
+          <h2 class="detail-title">{{ pokemonEncontrado.nome }}</h2>
+
+          <div class="types">
+            <span class="type-pill">{{ pokemonEncontrado.tipo1 }}</span>
+            <span class="type-pill" *ngIf="pokemonEncontrado.tipo2">{{ pokemonEncontrado.tipo2 }}</span>
           </div>
-          <div class="tipos-pokemon">
-            <p id="icon1">{{ pokemonEncontrado.icon1 }}</p>
-            <p title="Type 1" id="tipo1">
-              {{ pokemonEncontrado.tipo1 }}
-            </p>
-            <p id="icon2">{{ pokemonEncontrado.icon2 }}</p>
-            <p title="Type 2" id="tipo2">
-              {{ pokemonEncontrado.tipo2 }}
-            </p>
-          </div>
-          <div class="info">
+
+          <div class="info" style="margin: 12px 0; display:flex; gap:20px;">
             <div class="info-bloco">
-              <p title="Weight" class="peso">
-                {{ pokemonEncontrado.peso / 10 }}kg
-              </p>
+              <p class="peso">{{ pokemonEncontrado.peso / 10 }}kg</p>
               <p class="info__titulo">Peso</p>
             </div>
             <div class="info-bloco">
-              <p title="Height" class="altura">
-                {{ pokemonEncontrado.altura / 10 }}cm
-              </p>
+              <p class="altura">{{ pokemonEncontrado.altura / 10 }}cm</p>
               <p class="info__titulo">Altura</p>
             </div>
           </div>
 
           <div class="base-stats">
             <h3 class="base-stats__titulo">Base Stats</h3>
-            <div class="bloco">
-              <div class="barra">
-                <p>HP</p>
-                <div class="d-flex flex-column margin-bottom-1">
-                  <div class="barra-background"></div>
-                  <div
-                    class="barra-progresso vida"
-                    [style.width.px]="pokemonEncontrado.hp"
-                  >
-                    <p title="Hp value" class="hp">
-                      {{ pokemonEncontrado.hp }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="barra">
-                <p>ATQ</p>
-                <div class="d-flex flex-column margin-bottom-1">
-                  <div class="barra-background"></div>
-                  <div
-                    class="barra-progresso ataque"
-                    [style.width.px]="pokemonEncontrado.ataque"
-                  >
-                    <p title="Attack value" class="atq">
-                      {{ pokemonEncontrado.ataque }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="barra">
-                <p>DEF</p>
-                <div class="d-flex flex-column margin-bottom-1">
-                  <div class="barra-background"></div>
-                  <div
-                    class="barra-progresso defesa"
-                    [style.width.px]="pokemonEncontrado.defesa"
-                  >
-                    <p title="Defense value" class="def">
-                      {{ pokemonEncontrado.defesa }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="barra">
-                <p>SATQ</p>
-                <div class="d-flex flex-column margin-bottom-1">
-                  <div class="barra-background"></div>
-                  <div
-                    class="barra-progresso spa"
-                    [style.width.px]="pokemonEncontrado.specialAttack"
-                  >
-                    <p title="Special attack value" class="sa">
-                      {{ pokemonEncontrado.specialAttack }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="barra">
-                <p>SDEF</p>
-                <div class="d-flex flex-column margin-bottom-1">
-                  <div class="barra-background"></div>
-                  <div
-                    class="barra-progresso sd"
-                    [style.width.px]="pokemonEncontrado.specialDefense"
-                  >
-                    <p title="Special defense value" class="sd">
-                      {{ pokemonEncontrado.specialDefense }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="barra">
-                <p>VEL</p>
-                <div class="d-flex flex-column margin-bottom-1">
-                  <div class="barra-background"></div>
-                  <div
-                    class="barra-progresso speed"
-                    [style.width.px]="pokemonEncontrado.velocidade"
-                  >
-                    <p title="Speed value" class="speed">
-                      {{ pokemonEncontrado.velocidade }}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div class="stats">
+              <div class="stat-row"><span>HP</span><div class="stat-bar"><div class="stat-fill" [style.width.%]="(pokemonEncontrado.hp / 255) * 100"></div></div><strong>{{ pokemonEncontrado.hp }}</strong></div>
+              <div class="stat-row"><span>ATQ</span><div class="stat-bar"><div class="stat-fill" [style.width.%]="(pokemonEncontrado.ataque / 255) * 100"></div></div><strong>{{ pokemonEncontrado.ataque }}</strong></div>
+              <div class="stat-row"><span>DEF</span><div class="stat-bar"><div class="stat-fill" [style.width.%]="(pokemonEncontrado.defesa / 255) * 100"></div></div><strong>{{ pokemonEncontrado.defesa }}</strong></div>
+              <div class="stat-row"><span>SATQ</span><div class="stat-bar"><div class="stat-fill" [style.width.%]="(pokemonEncontrado.specialAttack / 255) * 100"></div></div><strong>{{ pokemonEncontrado.specialAttack }}</strong></div>
+              <div class="stat-row"><span>SDEF</span><div class="stat-bar"><div class="stat-fill" [style.width.%]="(pokemonEncontrado.specialDefense / 255) * 100"></div></div><strong>{{ pokemonEncontrado.specialDefense }}</strong></div>
+              <div class="stat-row"><span>VEL</span><div class="stat-bar"><div class="stat-fill" [style.width.%]="(pokemonEncontrado.velocidade / 255) * 100"></div></div><strong>{{ pokemonEncontrado.velocidade }}</strong></div>
             </div>
-            <div class="habilidades">
-              <p class="habilidades__titulo">Habilidades</p>
-              <div class="habilidades__info">
-                <p title="Ability 1">{{ pokemonEncontrado.habilidade1 }}</p>
-                <p title="Ability 2">{{ pokemonEncontrado.habilidade2 }}</p>
-                <p title="Ability 3">{{ pokemonEncontrado.habilidade3 }}</p>
-              </div>
+          </div>
+
+          <div class="habilidades">
+            <p class="habilidades__titulo">Habilidades</p>
+            <div class="habilidades__info">
+              <p title="Ability 1">{{ pokemonEncontrado.habilidade1 }}</p>
+              <p title="Ability 2">{{ pokemonEncontrado.habilidade2 }}</p>
+              <p title="Ability 3">{{ pokemonEncontrado.habilidade3 }}</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
   </body>
 </html>
