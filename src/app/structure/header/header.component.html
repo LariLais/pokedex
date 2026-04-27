@@ -1,15 +1,17 @@
 <header>
   <nav>
-    <ul>
-      <li>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="logo" title="Logo de Pokemon" />
-      </li>
-      <li class="link" title="Início"><a routerLink="/home">Home</a></li>
-      <li class="link" title="Lista"><a routerLink="/list">Lista</a></li>
-      <li class="link" title="Tipos"><a routerLink="/types">Tipos</a></li>
-      <li>
-        <p>{{ titulo }}</p>
-      </li>
-    </ul>
+    <div class="nav-inner">
+      <div class="logo">
+        <a routerLink="/home"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="logo" title="Logo de Pokemon" /></a>
+      </div>
+
+      <div class="nav-links">
+        <a routerLink="/home">Home</a>
+        <a routerLink="/list">Lista</a>
+        <a routerLink="/types">Tipos</a>
+      </div>
+
+      <div class="title">{{ titulo }}</div>
+    </div>
   </nav>
 </header>
