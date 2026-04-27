@@ -2,121 +2,104 @@ import { AppService } from './../../service/app.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+interface PokemonSearchResult {
+  nome: string;
+  id: number;
+  peso: string;
+  altura: string;
+}
+
+interface HistoricoItem {
+  id: number;
+  nome: string;
+}
+
 @Component({
   selector: 'app-pokemon-search',
   templateUrl: './pokemon-search.component.html',
-  styleUrls: ['./pokemon-search.component.scss']
+  styleUrls: ['./pokemon-search.component.scss'],
 })
 export class PokemonSearchComponent implements OnInit {
+  pokemonProcurado: string = '';
+  mensagem: string = '';
 
-  pokemonProcurado: string
-  erro404: boolean
-  mensagem: string
+  imagem: string = '';
 
-  pokemonEncontrado = {
+  mostrarHist = false;
+  funcao = 'Mostrar histórico';
+
+  pokemonEncontrado: PokemonSearchResult = {
     nome: '',
     id: 0,
     peso: '',
     altura: '',
-  }
+  };
 
-  historicoNome = []
-  historicoId = []
+  historico: HistoricoItem[] = [];
 
-  funcao = 'Mostrar histórico'
+  @Output() aoBuscar = new EventEmitter<PokemonSearchResult>();
 
-  imagem: string
-
-  @Output() aoBuscar = new EventEmitter<any>()
-
-  constructor(private service: AppService, private route: ActivatedRoute) {
-  }
+  constructor(
+    private service: AppService,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit(): void {
-    if (this.route.snapshot.paramMap.get('id') != undefined) {
-      this.pokemonProcurado = this.route.snapshot.paramMap.get('id')
-      this.buscar()
+    const param = this.route.snapshot.paramMap.get('id');
+
+    if (param) {
+      this.pokemonProcurado = param;
+      this.buscar();
     }
   }
 
   mostrarHistorico() {
-    const historico = document.getElementById('historico')
-    if (historico.style.display == 'none') {
-      historico.style.display = 'flex'
-      this.funcao = 'Fechar histórico'
-    } else {
-      historico.style.display = 'none'
-    }
+    this.mostrarHist = !this.mostrarHist;
+    this.funcao = this.mostrarHist ? 'Fechar histórico' : 'Mostrar histórico';
   }
 
-  public async buscar() {
-    this.mensagem = ''
-    const pokemon = this.pokemonProcurado.toLocaleLowerCase()
+  buscar() {
+    if (!this.pokemonProcurado) return;
 
-    this.service.getPokemonData(pokemon).subscribe((resultado: any) => {
+    this.mensagem = '';
+    const pokemon = this.pokemonProcurado.toLowerCase();
 
-      this.pokemonEncontrado.nome = resultado.name
-      this.pokemonEncontrado.id = resultado.id
-      this.pokemonEncontrado.peso = resultado.weight
-      this.pokemonEncontrado.altura = resultado.height
+    this.service.getPokemonData(pokemon).subscribe({
+      next: (resultado: any) => {
+        this.pokemonEncontrado = {
+          nome: resultado.name,
+          id: resultado.id,
+          peso: resultado.weight,
+          altura: resultado.height,
+        };
 
-      this.aoBuscar.emit(this.pokemonEncontrado)
+        this.aoBuscar.emit(this.pokemonEncontrado);
 
-      if (resultado.sprites.front_default != null) {
-        this.imagem = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${resultado.id}.png`
-      } else if (resultado.sprites.front_default == null) {
-        this.imagem = 'https://cdn.pixabay.com/photo/2018/05/21/13/09/pokemon-3418266_960_720.png'
-      }
+        this.imagem = resultado.sprites.front_default
+          ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${resultado.id}.png`
+          : 'https://cdn.pixabay.com/photo/2018/05/21/13/09/pokemon-3418266_960_720.png';
 
-      const tela = document.getElementById('bloco-resultado')
-      const imagens = document.getElementById('imagens')
-      imagens.style.display = 'flex'
-      tela.style.height = '300px'
-      tela.style.transition = '1.5s'
+        this.historico.unshift({
+          id: resultado.id,
+          nome: resultado.name,
+        });
 
-      this.historicoNome.push(resultado.name)
-      this.historicoId.push(resultado.id)
-
-    },
-      erro => {
-        if (erro.status == 404) {
-          this.erro404 = true
-          this.mensagem = 'Erro 404: Pokemon não encontrado. Tente novamente com outro nome ou ID.'
-          this.ngOnInit()
+        if (this.historico.length > 10) {
+          this.historico.pop();
         }
-      }
-    )
+      },
 
+      error: (erro) => {
+        if (erro.status === 404) {
+          this.mensagem = 'Pokémon não encontrado. Tente outro nome ou ID.';
+        }
+      },
+    });
   }
 
   randomPokemon() {
-    const pokemon = this.pokemonProcurado = Math.floor(Math.random() * (1000 - 1 + 1)) + 1 as unknown as undefined
-    this.mensagem = ''
-
-    this.service.getPokemonData(pokemon).subscribe((resultado: any) => {
-
-      this.pokemonEncontrado.nome = resultado.name
-      this.pokemonEncontrado.id = resultado.id
-      this.pokemonEncontrado.peso = resultado.weight
-      this.pokemonEncontrado.altura = resultado.height
-
-      this.aoBuscar.emit(this.pokemonEncontrado)
-
-      if (resultado.sprites.front_default != null) {
-        this.imagem = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${resultado.id}.png`
-      } else if (resultado.sprites.front_default == null) {
-        this.imagem = 'https://cdn.pixabay.com/photo/2018/05/21/13/09/pokemon-3418266_960_720.png'
-      }
-
-      const tela = document.getElementById('bloco-resultado')
-      const imagens = document.getElementById('imagens')
-      imagens.style.display = 'flex'
-      tela.style.height = '300px'
-      tela.style.transition = '1.5s'
-
-      this.historicoNome.push(resultado.name)
-      this.historicoId.push(resultado.id)
-    })
+    const randomId = Math.floor(Math.random() * 1000) + 1;
+    this.pokemonProcurado = String(randomId);
+    this.buscar();
   }
-
 }
