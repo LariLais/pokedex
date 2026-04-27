@@ -1,38 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista</title>
-  </head>
-  <body>
-    <app-header [titulo]="titulo"></app-header>
-    <main class="container">
-      <section class="content">
-        <article class="card-item" *ngFor="let lista of paginaAtual; let i = index">
-          <a class="card-link" [routerLink]="['/detail', paginaAtual[i].id]">
-            <div class="bloco">
-              <img [src]="paginaAtual[i].imageDefault" alt="pokemon photo" />
-              <div class="info">
-                <h2>{{ paginaAtual[i].name }}</h2>
-              </div>
-              <div class="types">
-                <span class="type-pill">{{ paginaAtual[i].type1 }}</span>
-                <span class="type-pill" *ngIf="paginaAtual[i].type2">{{ paginaAtual[i].type2 }}</span>
-              </div>
-            </div>
-          </a>
-        </article>
-      </section>
+<app-header [titulo]="titulo"></app-header>
 
-      <div class="pagination">
-        <button title="Primeira página" class="btn" (click)="primeiraPagina()" [disabled]="habilitaPrimeiraPagina()">&#171;</button>
-        <button title="Página anterior" class="btn" (click)="anteriorPagina()" [disabled]="habilitaRetrocesso()">&lt;</button>
-        <button title="Próxima página" class="btn" (click)="proximaPagina()" [disabled]="habilitaAvanco()">&gt;</button>
-        <button title="Última página" class="btn" (click)="ultimaPagina()" [disabled]="habilitaUltimaPagina()">&#187;</button>
-      </div>
-    </main>
-    <app-footer></app-footer>
-  </body>
-</html>
+<main class="list-root">
+  <div class="container">
+    <section class="grid" aria-label="Lista de Pokémon">
+      <article class="card" *ngFor="let pokemon of paginaAtual; let i = index">
+        <a class="card-link" [routerLink]="['/detail', pokemon.id]">
+          <div class="card-image-wrap">
+            <img
+              *ngIf="pokemon?.imageDefault"
+              [src]="pokemon.imageDefault"
+              [alt]="pokemon.name"
+            />
+          </div>
+          <div class="card-body">
+            <span class="card-id">#{{ pokemon.id | number: "3.0-0" }}</span>
+            <h2 class="card-name">{{ pokemon.name }}</h2>
+            <div class="types">
+              <span class="type-pill">{{ pokemon.type1 }}</span>
+              <span class="type-pill" *ngIf="pokemon.type2">{{
+                pokemon.type2
+              }}</span>
+            </div>
+          </div>
+        </a>
+      </article>
+    </section>
+
+    <nav class="pagination" aria-label="Paginação">
+      <button
+        class="page-btn"
+        title="Primeira página"
+        (click)="primeiraPagina()"
+        [disabled]="habilitaPrimeiraPagina()"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path
+            d="M11 2L6 7l5 5M3 2v10"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <button
+        class="page-btn"
+        title="Página anterior"
+        (click)="anteriorPagina()"
+        [disabled]="habilitaRetrocesso()"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path
+            d="M9 2L4 7l5 5"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <button
+        class="page-btn"
+        title="Próxima página"
+        (click)="proximaPagina()"
+        [disabled]="habilitaAvanco()"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path
+            d="M5 2l5 5-5 5"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <button
+        class="page-btn"
+        title="Última página"
+        (click)="ultimaPagina()"
+        [disabled]="habilitaUltimaPagina()"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path
+            d="M3 2l5 5-5 5M11 2v10"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </nav>
+  </div>
+</main>
+
+<app-footer></app-footer>

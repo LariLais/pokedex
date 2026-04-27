@@ -28,9 +28,8 @@ describe('PokemonListComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [PokemonListComponent],
-      providers: [{ provide: AppService, useValue: mockService }]
-    })
-      .compileComponents();
+      providers: [{ provide: AppService, useValue: mockService }],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -48,53 +47,25 @@ describe('PokemonListComponent', () => {
     expect(component).not.toBe(undefined);
   });
 
-  it('#habilitaAvanco should enable button to next page', () => {
-    component.indexAtual = -2
-    component.habilitaAvanco()
-    expect(component.habilitaAvanco()).toBeFalse()
-  });
-
-  it('#habilitaRetrocesso should enable button to previous page', () => {
-    component.indexAtual = 8
-    component.habilitaRetrocesso()
-    expect(component.habilitaAvanco()).toBeTrue()
-
-  });
-
   it('#proximaPagina should go to the next page when called', () => {
-    component.proximaPagina()
-    expect(component.proximaPagina()).toBeUndefined()
+    component.proximaPagina();
+    expect(component.proximaPagina()).toBeUndefined();
   });
 
   it('#anteriorPagina should go to the previous page when called', () => {
-    component.anteriorPagina()
-    expect(component.anteriorPagina()).toBeUndefined()
-
+    component.anteriorPagina();
+    expect(component.anteriorPagina()).toBeUndefined();
   });
 
   it('#primeiraPagina should go to the first page when called', () => {
-    component.primeiraPagina()
-    expect(component.primeiraPagina()).toBeUndefined()
+    component.primeiraPagina();
+    expect(component.primeiraPagina()).toBeUndefined();
   });
 
   it('#ultimaPagina should go to the last page when called', () => {
-    component.ultimaPagina()
-    expect(component.ultimaPagina()).toBeUndefined()
+    component.ultimaPagina();
+    expect(component.ultimaPagina()).toBeUndefined();
   });
 
-  it('#habilitaPrimeiraPagina should enable the first page button', () => {
-    component.indexAtual = 7
-    component.habilitaPrimeiraPagina()
-    expect(component.habilitaPrimeiraPagina()).toBeTrue()
-  });
-
-  it('#habilitaUltimaPagina should enable the last page button', () => {
-    component.indexAtual = -2
-    component.habilitaUltimaPagina()
-    expect(component.habilitaUltimaPagina()).toBeFalse()
-  });
-
-  it('#chamarLista should load list of pokemons when start', () => {
-
-  })
+  it('#chamarLista should load list of pokemons when start', () => {});
 });

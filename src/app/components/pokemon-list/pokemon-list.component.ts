@@ -1,6 +1,15 @@
 import { AppService } from './../../service/app.service';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/Pokemon';
+import { forkJoin } from 'rxjs';
+
+interface PokemonListItem {
+  id: number;
+  name: string;
+  type1: string;
+  type2?: string;
+  imageDefault: string;
+}
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,118 +19,91 @@ import { Pokemon } from 'src/app/models/Pokemon';
 export class PokemonListComponent implements OnInit {
   constructor(public service: AppService) {}
 
-  ngOnInit(): void {
-    this.chamarLista();
-    this.lista = [];
-  }
-
   titulo = 'Lista de pokemons';
 
-  indexAtual: number = -1;
-  pageSize: number = 8;
-  paginaAtual: Pokemon[];
-  lista: Pokemon[];
+  lista: any[] = [];
+  paginaAtual: PokemonListItem[] = [];
+
+  pagina = 0;
+  pageSize = 8;
+
+  carregando = false;
+
+  ngOnInit(): void {
+    this.chamarLista();
+  }
 
   chamarLista() {
     this.service.getPokemonLista().subscribe((res: any) => {
       this.lista = res.results;
-      for (let i = 0; i < this.lista.length; i++) {
-        this.service
-          .getPokemonData(this.lista[i].name)
-          .subscribe((res: any) => {
-            this.lista[i].id = res.id;
-
-            if (res.types.length == 1) {
-              this.lista[i].type1 = res.types[0].type.name;
-            } else {
-              this.lista[i].type1 = res.types[0].type.name;
-              this.lista[i].type2 = res.types[1].type.name;
-            }
-
-            this.lista[i].imageDefault = res.sprites.front_default;
-
-            if (res.sprites.front_default == null) {
-              this.lista[i].imageDefault =
-                'https://cdn.pixabay.com/photo/2018/05/21/13/09/pokemon-3418266_960_720.png';
-            }
-          });
-      }
-      this.proximaPagina();
+      this.carregarPagina();
     });
   }
 
-  habilitaAvanco(): Boolean {
-    if (this.indexAtual < this.lista.length - 1) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  carregarPagina() {
+    this.carregando = true;
 
-  habilitaRetrocesso(): Boolean {
-    if (this.indexAtual - (this.pageSize - 1) > 0) {
-      return false;
-    } else {
-      return true;
-    }
+    const inicio = this.pagina * this.pageSize;
+    const fim = inicio + this.pageSize;
+
+    const pokemonsPagina = this.lista.slice(inicio, fim);
+
+    const requests = pokemonsPagina.map((pokemon) =>
+      this.service.getPokemonData(pokemon.name),
+    );
+
+    forkJoin(requests).subscribe((responses: any[]) => {
+      this.paginaAtual = responses.map((res) => ({
+        id: res.id,
+        name: res.name,
+        type1: res.types[0]?.type.name,
+        type2: res.types[1]?.type.name,
+        imageDefault:
+          res.sprites.front_default ||
+          'https://cdn.pixabay.com/photo/2018/05/21/13/09/pokemon-3418266_960_720.png',
+      }));
+
+      this.carregando = false;
+    });
   }
 
   proximaPagina() {
-    this.paginaAtual = [];
-    for (let i = 0; i < this.pageSize; i++) {
-      this.indexAtual = this.indexAtual + 1;
-      this.paginaAtual.push(this.lista[this.indexAtual]);
+    if (!this.habilitaAvanco()) {
+      this.pagina++;
+      this.carregarPagina();
     }
-    this.habilitaAvanco();
-    this.habilitaRetrocesso();
   }
 
   anteriorPagina() {
-    this.paginaAtual = [];
-    this.indexAtual = this.indexAtual - 7;
-    for (let i = 0; i < this.pageSize; i++) {
-      this.indexAtual = this.indexAtual - 1;
-      this.paginaAtual.push(this.lista[this.indexAtual]);
+    if (!this.habilitaRetrocesso()) {
+      this.pagina--;
+      this.carregarPagina();
     }
-    this.indexAtual = this.indexAtual + 7;
-    this.paginaAtual.reverse();
-    this.habilitaAvanco();
-    this.habilitaRetrocesso();
   }
 
   primeiraPagina() {
-    this.paginaAtual = [];
-    this.indexAtual = -1;
-    for (let i = 0; i < this.pageSize; i++) {
-      this.indexAtual = this.indexAtual + 1;
-      this.paginaAtual.push(this.lista[this.indexAtual]);
-    }
+    this.pagina = 0;
+    this.carregarPagina();
   }
 
   ultimaPagina() {
-    this.paginaAtual = [];
-    this.indexAtual = this.lista.length - 1;
-    for (let i = 0; i < this.pageSize; i++) {
-      this.indexAtual = this.indexAtual - 1;
-      this.paginaAtual.push(this.lista[this.indexAtual]);
-    }
-    this.indexAtual = this.indexAtual + 8;
-    this.paginaAtual.reverse();
+    this.pagina = Math.floor(this.lista.length / this.pageSize);
+    this.carregarPagina();
   }
 
-  habilitaPrimeiraPagina() {
-    if (this.indexAtual == 7) {
-      return true;
-    } else {
-      return false;
-    }
+  habilitaAvanco(): boolean {
+    return (this.pagina + 1) * this.pageSize >= this.lista.length;
   }
 
-  habilitaUltimaPagina() {
-    if (this.indexAtual >= this.lista.length - 1) {
-      return true;
-    } else {
-      return false;
-    }
+  habilitaRetrocesso(): boolean {
+    return this.pagina === 0;
+  }
+
+  habilitaPrimeiraPagina(): boolean {
+    return this.pagina === 0;
+  }
+
+  habilitaUltimaPagina(): boolean {
+    return (this.pagina + 1) * this.pageSize >= this.lista.length;
   }
 }
