@@ -1,26 +1,33 @@
 <app-header></app-header>
 
-<main>
+<main class="home-main">
   <section class="section-hero">
     <div class="hero-inner container">
       <div class="hero-content">
-        <h1 class="titulo">Busque seu Pokémon favorito</h1>
+        <span class="eyebrow"><span class="pulse"></span> Pokédex interativa</span>
+        <h1 class="titulo">Seu próximo Pokémon está <em>por aqui.</em></h1>
 
         <p class="subtitulo">
-          Explore a Pokédex, descubra tipos e encontre qualquer Pokémon pelo
-          nome ou ID.
+          Explore espécies, descubra tipos e compare atributos em uma experiência simples e rápida.
         </p>
 
-        <a class="cta" [routerLink]="link"> Procurar Pokémon </a>
+        <div class="hero-actions"><a class="cta" [routerLink]="link">Encontrar Pokémon <span>→</span></a><a class="secondary-link" routerLink="/list">Ver catálogo</a></div>
+        <div class="hero-note"><span>✦</span> Dados atualizados via PokéAPI</div>
       </div>
 
       <div class="hero-illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
         <img
           src="https://www.pngplay.com/wp-content/uploads/11/Pikachu-Pokemon-PNG-Photo-Image.png"
           alt="Pikachu"
         />
       </div>
     </div>
+  </section>
+  <section class="home-features container" aria-label="Recursos da Pokédex">
+    <article><span class="feature-icon">⌕</span><div><strong>Busca inteligente</strong><p>Pesquise por nome ou número.</p></div></article>
+    <article><span class="feature-icon">◈</span><div><strong>Tipos e fraquezas</strong><p>Explore cada categoria.</p></div></article>
+    <article><span class="feature-icon">↗</span><div><strong>Detalhes completos</strong><p>Stats, habilidades e formas.</p></div></article>
   </section>
 </main>
 

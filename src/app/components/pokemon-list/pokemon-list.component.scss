@@ -207,3 +207,18 @@
     border-radius: 10px;
   }
 }
+
+.page-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:28px; }
+.page-heading h1 { font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:-.05em; margin:10px 0 0; }
+.eyebrow { color:var(--cyan); font-size:.67rem; font-weight:800; letter-spacing:.16em; }
+.result-count { color:var(--muted); font-size:.75rem; font-weight:700; padding-bottom:5px; }
+.card { background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025)); border-color:var(--line); }
+.card:hover { background:linear-gradient(145deg,rgba(255,117,79,.14),rgba(255,255,255,.035)); border-color:rgba(255,117,79,.36); }
+.card-image-wrap { background:rgba(101,213,214,.055); }
+.card:hover .card-image-wrap { background:rgba(255,117,79,.08); }
+.card-id { color:var(--muted); }
+.card-name { color:var(--text); }
+.type-pill { color:var(--cyan); background:rgba(101,213,214,.1); border-color:rgba(101,213,214,.25); }
+.page-btn { border-color:var(--line); background:var(--surface); color:var(--muted); }
+.page-btn:hover:not(:disabled) { background:var(--accent-soft); border-color:rgba(255,117,79,.4); }
+@media (max-width:600px) { .page-heading { align-items:flex-start; } .list-root { padding-top:32px; } }

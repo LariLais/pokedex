@@ -2,6 +2,7 @@
 
 <main class="list-root">
   <div class="container">
+    <div class="page-heading"><div><span class="eyebrow">CATÁLOGO COMPLETO</span><h1>Explore os Pokémon</h1></div><span class="result-count">{{ lista.length || '—' }} espécies</span></div>
     <section class="grid" aria-label="Lista de Pokémon">
       <article class="card" *ngFor="let pokemon of paginaAtual; let i = index">
         <a class="card-link" [routerLink]="['/detail', pokemon.id]">

@@ -96,3 +96,17 @@
   text-align: center;
   margin: 20px;
 }
+.types-heading { width:min(1000px,calc(100% - 40px)); margin:0 auto 28px; }
+.eyebrow { color:var(--cyan); font-size:.67rem; font-weight:800; letter-spacing:.16em; }
+.types-heading h1 { font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.2rem); letter-spacing:-.06em; margin:10px 0 6px; }
+.types-heading p { color:var(--muted); font-size:.8rem; margin:0; }
+.poke-simbol { display:flex; flex-direction:column; align-items:center; gap:6px; cursor:pointer; }
+.poke-simbol span { color:var(--muted); font-size:.62rem; text-transform:capitalize; }
+.poke-simbol img { width:48px; height:48px; }
+.poke-simbol img:hover { border-color:var(--accent); box-shadow:0 0 18px rgba(255,117,79,.3); }
+.card { background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025)); border:1px solid var(--line); }
+.card:hover { background:var(--accent-soft); border-color:rgba(255,117,79,.35); }
+.card a { color:var(--text); }
+.botoes button { border:1px solid var(--line); background:var(--surface); color:var(--text); transition:.2s; }
+.botoes button:hover:not(:disabled) { background:var(--accent-soft); border-color:var(--accent); }
+@media (max-width:600px) { .types-heading { width:calc(100% - 28px); } .page { padding-top:32px; } .content { width:calc(100% - 28px); grid-template-columns:repeat(2,1fr); gap:12px; } }

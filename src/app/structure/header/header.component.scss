@@ -1,41 +1,44 @@
-:host {
-  display: block;
-  background: linear-gradient(90deg, #ff7a4a 0%, #ff5a2b 100%);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.24);
-}
+:host { display: block; position: relative; z-index: 5; }
+.site-header { background: rgba(8, 17, 31, .82); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); }
 
 nav {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  height:72px;
+  height:76px;
 }
 
 .nav-inner {
-  width: min(1200px, 94%);
+  width: min(1160px, calc(100% - 40px));
   margin: 0 auto;
   display:flex;
   align-items:center;
-  gap: 24px;
+  gap: 38px;
 }
 
-.logo img { width: 120px; height: auto; display:block; }
+.logo a { display:flex; align-items:center; gap:10px; color:var(--text); text-decoration:none; }
+.logo-mark { width:34px; height:34px; display:grid; place-items:center; border-radius:11px; color:#fff; background:linear-gradient(135deg,var(--accent),#ffad66); font-family:var(--font-display); font-size:1.05rem; box-shadow:0 7px 18px rgba(255,117,79,.25); }
+.logo-copy { font-family:var(--font-display); font-size:.86rem; letter-spacing:-.04em; }
+.logo-copy span { color:var(--accent); }
 
-.nav-links { display:flex; gap: 14px; align-items:center; }
+.nav-links { display:flex; gap:5px; align-items:center; }
 .nav-links a {
-  color: rgba(8,8,8,0.85);
+  color: var(--muted);
+  font-size:.82rem;
   font-weight:700;
-  padding: 8px 12px;
-  border-radius:8px;
+  padding: 10px 14px;
+  border-radius:10px;
   text-decoration:none;
-  transition: background .12s ease, transform .12s ease;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
 }
-.nav-links a:hover { background: rgba(255,255,255,0.12); transform:translateY(-2px); }
+.nav-links a:hover, .nav-links a.active { background: var(--accent-soft); color: #fff; }
 
-.title { color: rgba(12,12,12,0.9); font-weight:700; margin-left: auto; }
+.title { color: var(--muted); font-size:.75rem; font-weight:700; margin-left:auto; display:flex; align-items:center; gap:8px; }
+.title-dot { width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan); }
 
 @media (max-width: 700px) {
-  .nav-inner { gap:10px; }
-  .logo img { width: 90px; }
+  .nav-inner { gap:12px; }
+  .logo-copy { display:none; }
+  .nav-links a { padding:9px 8px; font-size:.72rem; }
   .title { display:none; }
 }

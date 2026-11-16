@@ -11,8 +11,9 @@
 
   width: min(1000px, 92%);
   margin: 10px auto;
+  padding: 10px 0;
 
-  color: white;
+  color: var(--text);
   font-weight: bold;
   font-family: var(--fonte-principal);
 }
@@ -35,13 +36,20 @@
 
 .link {
   text-decoration: none;
-  color: white;
+  color: var(--text);
+  width:38px;
+  height:38px;
+  justify-content:center;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
   display: flex;
   align-items: center;
 }
 
 .link:hover {
-  color: #ff7d55;
+  color: var(--accent);
+  border-color:var(--accent);
 }
 
 .link:hover .material-symbols-outlined {

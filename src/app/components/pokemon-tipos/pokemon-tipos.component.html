@@ -1,6 +1,7 @@
 <app-header [titulo]="titulo"></app-header>
 
 <main class="page">
+  <div class="types-heading"><span class="eyebrow">NAVEGUE POR CATEGORIA</span><h1>Escolha um tipo</h1><p>Encontre Pokémon com a mesma essência.</p></div>
   <section class="types-section">
     <ul class="simbols-list">
       <li
@@ -8,7 +9,7 @@
         *ngFor="let tipo of tipos"
         (click)="buscarPokemonDoTipo(tipo.id)"
       >
-        <img [src]="tipo.img" [title]="tipo.nome" />
+        <img [src]="tipo.img" [title]="tipo.nome" [alt]="tipo.nome" /><span>{{ tipo.nome }}</span>
       </li>
     </ul>
   </section>

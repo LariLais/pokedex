@@ -1,17 +1,17 @@
-<header>
+<header class="site-header">
   <nav>
     <div class="nav-inner">
       <div class="logo">
-        <a routerLink="/home"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="logo" title="Logo de Pokemon" /></a>
+        <a routerLink="/home" aria-label="Ir para o início"><span class="logo-mark">P</span><span class="logo-copy">Pokédex<span>.</span></span></a>
       </div>
 
       <div class="nav-links">
-        <a routerLink="/home">Home</a>
-        <a routerLink="/list">Lista</a>
-        <a routerLink="/types">Tipos</a>
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Início</a>
+        <a routerLink="/list" routerLinkActive="active">Pokémon</a>
+        <a routerLink="/types" routerLinkActive="active">Tipos</a>
       </div>
 
-      <div class="title">{{ titulo }}</div>
+      <div class="title" *ngIf="titulo"><span class="title-dot"></span>{{ titulo }}</div>
     </div>
   </nav>
 </header>

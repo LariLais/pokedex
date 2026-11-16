@@ -1,25 +1,24 @@
 :root {
-  /* Tipografia */
-  --font-primary: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  --font-display: "Krona One", --font-primary;
-
-  /* Neutrals */
-  --bg-dark: #1f2124;
-  --text-dark: #1d1c1c;
-  --muted: #8b8b8b;
-
-  /* Accent colors (pokemon-ish) */
-  --accent-fire: #ff6b4a;
-  --accent-water: #6aa0dd;
-  --accent-grass: #5dc460;
-  --accent-electric: #ffd86b;
-
-  /* UI */
-  --card-bg: rgba(255,255,255,0.04);
-  --glass-bg: rgba(255,255,255,0.06);
-  --glass-border: rgba(255,255,255,0.06);
-  --radius: 12px;
-  --shadow: 0 6px 18px rgba(6,6,6,0.45);
+  --font-primary: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Krona One", "Montserrat", sans-serif;
+  --bg: #08111f;
+  --bg-soft: #0d1a2d;
+  --surface: rgba(17, 32, 53, 0.78);
+  --surface-solid: #12233b;
+  --line: rgba(164, 190, 224, 0.14);
+  --text: #f4f7fb;
+  --muted: #8fa2bb;
+  --accent: #ff754f;
+  --accent-strong: #ff542f;
+  --accent-soft: rgba(255, 117, 79, 0.14);
+  --cyan: #65d5d6;
+  --radius: 18px;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+  --normal: #a8a77a; --fire: #ee8130; --water: #6390f0; --electric: #f7d02c;
+  --grass: #7ac74c; --ice: #96d9d6; --fighting: #c22e28; --poison: #a33ea1;
+  --ground: #e2bf65; --flying: #a98ff3; --psychic: #f95587; --bug: #a6b91a;
+  --rock: #b6a136; --ghost: #735797; --dragon: #6f35fc; --dark: #705746;
+  --steel: #b7b7ce; --fairy: #d685ad;
 }
 
 /* Reset / base */
@@ -29,24 +28,31 @@
   box-sizing: border-box;
 }
 html, body, #root, app-root {
-  height: 100%;
+  min-height: 100%;
 }
 body {
   margin: 0;
   font-family: var(--font-primary);
-  background: linear-gradient(180deg, #0f1720 0%, #16191b 60%);
-  color: #eee;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 117, 79, 0.12), transparent 26rem),
+    radial-gradient(circle at 95% 8%, rgba(101, 213, 214, 0.09), transparent 24rem),
+    var(--bg);
+  color: var(--text);
+  min-width: 320px;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
 
 /* Utility helpers */
 .container {
-  width: min(1200px, 92%);
+  width: min(1160px, calc(100% - 40px));
   margin: 0 auto;
 }
+
+a, button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid rgba(101, 213, 214, .7); outline-offset: 3px; }
 .muted { color: var(--muted); }
-.center { display:flex; align-items:center; justify-content:center; }
 
 /* Buttons */
 .btn {
@@ -54,15 +60,17 @@ body {
   align-items:center;
   justify-content:center;
   gap: .5rem;
-  padding: .6rem 1rem;
-  border-radius: 10px;
-  border: none;
-  background: var(--accent-fire);
-  color: #0b0b0b;
+  min-height: 46px;
+  padding: .7rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: #1e0c08;
+  font-weight: 800;
   cursor: pointer;
   transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
-.btn:hover { transform: translateY(-2px); filter:brightness(1.06); }
+.btn:hover { transform: translateY(-2px); filter:brightness(1.06); box-shadow: 0 10px 24px rgba(255, 117, 79, .2); }
 .btn:disabled { opacity: .6; cursor: not-allowed; transform:none; }
 
 /* Card grid */
@@ -73,12 +81,12 @@ body {
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+  background: linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
   border-radius: var(--radius);
   padding: 14px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 34px rgba(0,0,0,.16);
   transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-  border: 1px solid rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
   overflow: hidden;
 }
 .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(2,6,23,0.6); }
@@ -91,6 +99,11 @@ body {
 
 /* Small screens adjustments */
 @media (max-width: 600px) {
-  :root { --radius:10px; }
+  .container { width: min(100% - 28px, 1160px); }
+  :root { --radius: 15px; }
   .card img { width: 80px; height:80px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }

@@ -130,7 +130,9 @@ export class PokemonDetailComponent implements OnInit {
     fundo.style.backgroundColor = `var(--${this.pokemonEncontrado.tipo1})`;
 
     // TIPO 2
-    tipo2.style.backgroundColor = `var(--${this.pokemonEncontrado.tipo2})`;
+    if (tipo2 && this.pokemonEncontrado.tipo2) {
+      tipo2.style.backgroundColor = `var(--${this.pokemonEncontrado.tipo2})`;
+    }
   }
 
   trocarImagem() {
